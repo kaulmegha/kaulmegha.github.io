@@ -6,7 +6,6 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
   providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
-
 })
 export class IntroComponent implements OnInit {
 

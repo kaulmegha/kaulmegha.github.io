@@ -6,22 +6,19 @@ import {Injectable} from '@angular/core';
 export class MockAboutService implements AboutService {
 
   getAbout(): Observable<string[]> {
-
     const about =
-      'I am a software engineer working for Amazon and write clean, scalable and tolerant microservice for the Amazon Same Day Delivery team. '+
-      'I am also an AWS Certified Developer and Solutions Architect with experience designing, developing and deploying AI and Big Data ' +
-      'solutions in a high paced agile environment. I am an avid clean coder who is adept at rapid prototyping for fast turnaround times in POCs.\n' +
-      'I have extensive experience with all stages of the software development life cycle, ' +
-      '6+ years of progressive experience in Java, AWS, Apache Hadoop, Big Data, HDFS, HBase, NiFi, Angular, HTML, CSS ' +
-      'and Typescript development. \n' +
-      'I have been working in an Agile environment and possess creative design thinking skills and dedicated to work effectively in ' +
-      'dynamic environments. \n' +
-      'In my free time I love listening to music, playing soccer, cricket, swimming and go hiking. ' +
-      'I am a lover of innovation and everything that would increase my set of skills and knowledge. \n' +
-      'I face problems with a smile and solve quickly. Very calculative about the work I do and time I spend. \n';
+      "Hi, I'm Megha Kaul — an Azure & PSPO certified Product Manager with 9 years of experience leading data platforms, " +
+      "analytics, and AI-driven products in enterprise SaaS environments.\n" +
+      "I specialize in product strategy, roadmap prioritization, GTM execution, and cross-functional leadership, with a proven " +
+      "track record of scaling data platforms, improving adoption, and driving operational excellence using Azure Databricks, " +
+      "Kafka, Power BI, AI/ML, and telemetry-driven product development.\n" +
+      "At GEP Worldwide, I own the product vision and roadmap for internal and customer-facing data platforms supporting " +
+      "$3.7M+ in annual revenue. I launched an AI-powered analytics chatbot that expanded the active user base by 15%, " +
+      "and led a multi-tenant analytics platform that drove $1.2M incremental revenue and reduced customer onboarding time by 35%.\n" +
+      "I hold certifications in Microsoft Azure Data Fundamentals, PSPO, Agentic AI, RAG, and AI Agents for Product Leaders. " +
+      "My technical toolkit includes SQL, Python, LLM/RAG, Azure Databricks, Data Factory, Elastic Search, Kafka, Power BI, " +
+      "Tableau, and DevOps/CI/CD pipelines.\n";
 
-    const arr: string[] = about.split('\n');
-    return of(arr);
+    return of(about.split('\n').filter(p => p.length > 0));
   }
-
 }

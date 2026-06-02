@@ -8,12 +8,11 @@ import {Observable} from 'rxjs';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  about$: Observable<string []>;
+  about$: Observable<string[]>;
 
   constructor(@Inject(AboutServiceToken) private aboutService: AboutService) { }
 
   ngOnInit() {
-    this.about$ = this.aboutService.getAbout().pipe();
+    this.about$ = this.aboutService.getAbout();
   }
-
 }

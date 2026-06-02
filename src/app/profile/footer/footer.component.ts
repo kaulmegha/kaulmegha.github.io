@@ -1,5 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {BuildInformation, BuildInformationToken} from '../../services/build-information';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,10 +6,6 @@ import {BuildInformation, BuildInformationToken} from '../../services/build-info
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
-  constructor(@Inject(BuildInformationToken) public buildInformation: BuildInformation) { }
-
-  ngOnInit() {
-  }
-
+  constructor() { }
+  ngOnInit() {}
 }

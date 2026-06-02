@@ -1,7 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {ContactService, ContactServiceToken} from '../services/contact/contact.service';
-import {flatMap} from 'rxjs/operators';
-import {Contact} from '../models/contact';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -9,22 +6,6 @@ import {Contact} from '../models/contact';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor(@Inject(ContactServiceToken) private contactService: ContactService) {}
-
-  ngOnInit() {
-    this.contactService.getClientInfo().pipe(
-      flatMap(ipInfo => {
-        const email = new Contact(
-          ipInfo.org,
-          'user-info@bhatvivek.com',
-          ipInfo.ip,
-          ipInfo
-        );
-        return this.contactService.contactForm(email);
-      })
-    ).subscribe();
-
-  }
-
+  constructor() { }
+  ngOnInit() {}
 }

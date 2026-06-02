@@ -13,23 +13,20 @@
         </div>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
           <ul class="navbar-nav">
-            <ng-container *ngFor="let link of ids">
-              <li class="nav-item">
-                <a class="nav-link pointer smooth-scroll" (click)="onClick(link)">{{link}}</a>
-              </li>
-            </ng-container>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                 aria-haspopup="true" aria-expanded="false">
-                Projects
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item pointer smooth-scroll" (click)="onClick('portfolio')">Portfolios</a>
-                <a class="dropdown-item pointer smooth-scroll" (click)="onClick('oss-projects')">Open Source
-                  Projects</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item pointer smooth-scroll" (click)="onClick('other-projects')">Other Projects</a>
-              </div>
+            <li class="nav-item">
+              <a class="nav-link pointer smooth-scroll" (click)="onClick('about')">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pointer smooth-scroll" (click)="onClick('skills')">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pointer smooth-scroll" (click)="onClick('experience')">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pointer smooth-scroll" (click)="onClick('education')">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pointer smooth-scroll" (click)="onClick('resume')">Resume</a>
             </li>
             <li class="nav-item">
               <a class="nav-link pointer smooth-scroll" (click)="onClick('contact')">Contact</a>

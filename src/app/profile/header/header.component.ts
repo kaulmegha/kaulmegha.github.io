@@ -6,10 +6,8 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
-
 })
 export class HeaderComponent implements OnInit {
-  ids: Array<string> = ['about', 'education', 'skills', 'experience', 'resume'];
 
   constructor(private location: Location) { }
 
@@ -17,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   onClick(id: string) {
     if (id === 'resume') {
-      window.open('assets/resume/Resume_Vivek_Bhat.pdf', '_blank');
+      window.open('assets/resume/Resume_Megha_Kaul.pdf', '_blank');
     } else {
       id = '#' + id;
       const element = document.querySelector(id);
