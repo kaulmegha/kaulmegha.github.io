@@ -1,43 +1,45 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {ContactService, ContactServiceToken} from '../../services/contact/contact.service';
+import {Component, inject} from '@angular/core';
+import {NgIf} from '@angular/common';
+import {ReactiveFormsModule, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ContactServiceToken} from '../../services/contact/contact.service';
+import {MockContactService} from '../../services/contact/mock-contact.service';
 import {Contact} from '../../models/contact';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
+  standalone: true,
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  providers: [{provide: ContactServiceToken, useClass: MockContactService}]
 })
-export class ContactComponent implements OnInit {
-  model: Contact;
+export class ContactComponent {
+  model!: Contact;
   submitted = false;
   success = false;
-  error: {};
-  contactFormGroup: FormGroup = new FormGroup({
+  error: unknown;
+
+  contactFormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     name: new FormControl('', [Validators.required]),
     message: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl(''),
   });
 
-  constructor(@Inject(ContactServiceToken) private contactService: ContactService) { }
-
-  ngOnInit() {}
+  private contactService = inject(ContactServiceToken);
 
   onSubmit() {
     this.submitted = true;
-    const getVal = (field: string) => this.contactFormGroup.get(field).value;
+    const g = this.contactFormGroup;
     this.model = new Contact(
-      getVal('name'),
-      getVal('email'),
-      getVal('phoneNumber'),
-      getVal('message'));
-    return this.contactService.contactForm(this.model).subscribe(
-      () => {
-        this.success = true;
-        this.contactFormGroup.reset();
-      },
-      error => this.error = error
+      g.get('name')!.value!,
+      g.get('email')!.value!,
+      g.get('phoneNumber')!.value ?? '',
+      g.get('message')!.value!
     );
+    this.contactService.contactForm(this.model).subscribe({
+      next: () => { this.success = true; g.reset(); },
+      error: err => this.error = err
+    });
   }
 }
