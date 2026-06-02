@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {NgIf} from '@angular/common';
 import {ReactiveFormsModule, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactServiceToken} from '../../services/contact/contact.service';
-import {MockContactService} from '../../services/contact/mock-contact.service';
+import {FormspreeContactService} from '../../services/contact/formspree-contact.service';
 import {Contact} from '../../models/contact';
 
 @Component({
@@ -11,7 +11,7 @@ import {Contact} from '../../models/contact';
   imports: [ReactiveFormsModule, NgIf],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  providers: [{provide: ContactServiceToken, useClass: MockContactService}]
+  providers: [{provide: ContactServiceToken, useClass: FormspreeContactService}]
 })
 export class ContactComponent {
   model!: Contact;
