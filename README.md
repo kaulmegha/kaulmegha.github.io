@@ -1,4 +1,4 @@
-# Megha Kaul — Personal Website
+# Megha Kaul | Personal Website
 
 Live at: https://kaulmegha.github.io/
 

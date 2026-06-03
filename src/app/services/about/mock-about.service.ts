@@ -7,7 +7,7 @@ export class MockAboutService implements AboutService {
 
   getAbout(): Observable<string[]> {
     const about =
-      "Hi, I'm Megha Kaul — an Azure & PSPO certified Product Manager with 9 years of experience leading data platforms, " +
+      "Hi, I'm Megha Kaul, an Azure & PSPO certified Product Manager with 9 years of experience leading data platforms, " +
       "analytics, and AI-driven products in enterprise SaaS environments.\n" +
       "I specialize in product strategy, roadmap prioritization, GTM execution, and cross-functional leadership, with a proven " +
       "track record of scaling data platforms, improving adoption, and driving operational excellence using Azure Databricks, " +

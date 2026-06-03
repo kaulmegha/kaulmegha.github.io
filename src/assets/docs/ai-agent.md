@@ -1,4 +1,4 @@
-# AI Agent — Build Log
+# AI Agent: Build Log
 
 This project was built end-to-end using [Kiro](https://kiro.dev) (Claude Sonnet 4.6) in a single chat session. No code was written manually.
 
@@ -19,7 +19,7 @@ This repository hosts her personal portfolio website, built to showcase her prof
 ## What the agent did
 
 1. **Explored** an existing reference Angular site (`website-v2`) to extract the design, component structure, CSS/JS assets, and deployment patterns
-2. **Extracted** resume content directly from Megha's PDF using `pdftotext` — work history, education, skills, and summary
+2. **Extracted** resume content directly from Megha's PDF using `pdftotext`: work history, education, skills, and summary history, education, skills, and summary
 3. **Scaffolded** a complete Angular 21 app from scratch: hero/intro, about, skills, experience, education, contact, header, footer
 4. **Migrated** from Angular 13 NgModules to Angular 21 standalone components
 5. **Set up CI/CD** via GitHub Actions, building with Node 22 and deploying to the `gh-pages` branch
