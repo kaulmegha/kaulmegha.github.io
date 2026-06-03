@@ -27,6 +27,15 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
+      - name: Set build info
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          BUILD_TIME=$(TZ=America/New_York date)
+          sed -i "s/CI_COMMIT_SHORT_SHA/${GITHUB_SHA:0:8}/" src/environments/*.ts
+          sed -i "s/CI_PIPELINE_ID/$GITHUB_RUN_ID/" src/environments/*.ts
+          sed -i "s/BUILD_TIME/$BUILD_TIME/" src/environments/*.ts
+          sed -i "s/VERSION/$VERSION/" src/environments/*.ts
+
       - name: Build
         run: npm run build:prod
 

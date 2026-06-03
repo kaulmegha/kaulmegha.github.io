@@ -7,4 +7,10 @@
   <div class="text-center text-muted">
     <p>&copy; All rights reserved.</p>
   </div>
+  <div class="text-center text-muted">
+    <b>Release version:</b> v{{buildInformation.version || '0.0.0'}} |
+    <b>Commit:</b> {{buildInformation.commit || 'unknown'}} |
+    <b>Built:</b> {{buildInformation.buildTime || 'locally'}} |
+    <b>Pipeline:</b> #{{buildInformation.buildPipeline || 0}}
+  </div>
 </footer>
